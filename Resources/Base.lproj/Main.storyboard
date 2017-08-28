@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6e-Es-c4f" id="f41-yA-aM1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -111,13 +111,20 @@
                             <outlet property="delegate" destination="Tbx-yw-x53" id="IMz-7z-Kzz"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Users" id="ti9-Qn-05P">
+                        <barButtonItem key="leftBarButtonItem" title="Post" id="fmT-Zw-aXF">
+                            <connections>
+                                <segue destination="dcd-1A-BnH" kind="show" id="9fh-pX-35K"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="nmE-Zm-1rW">
                             <connections>
                                 <action selector="logout:" destination="Tbx-yw-x53" id="h5w-dm-vQu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logoutSegue" id="Swa-bh-XpA"/>
                     </connections>
@@ -142,5 +149,62 @@
             </objects>
             <point key="canvasLocation" x="914" y="127"/>
         </scene>
+        <!--Post-->
+        <scene sceneID="ZjQ-UJ-xSC">
+            <objects>
+                <viewController title="Post" id="dcd-1A-BnH" customClass="PostViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iBs-Ch-tRu"/>
+                        <viewControllerLayoutGuide type="bottom" id="8RD-Sl-pVQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qeq-uM-NTd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIr-EP-dra">
+                                <rect key="frame" x="16" y="94" width="343" height="301"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVt-8o-jLO">
+                                <rect key="frame" x="128" y="418" width="119" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose an image"/>
+                                <connections>
+                                    <action selector="chooseAnImage:" destination="dcd-1A-BnH" eventType="touchUpInside" id="ylY-oK-X3l"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqD-1z-Hvv">
+                                <rect key="frame" x="16" y="456" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKX-sz-yWx">
+                                <rect key="frame" x="141" y="494" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.4790845513343811" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Post Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postImage:" destination="dcd-1A-BnH" eventType="touchUpInside" id="0Xg-tL-gxH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageToPost" destination="TIr-EP-dra" id="FE9-ZG-ymc"/>
+                        <outlet property="messageTextField" destination="MqD-1z-Hvv" id="VTT-Mu-QK7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XzR-Fq-7qw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2463.1999999999998" y="122.78860569715144"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="person-icon.png" width="1862" height="2400"/>
+    </resources>
 </document>
